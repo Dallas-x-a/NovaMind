@@ -1,0 +1,100 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "novamind"
+version = "0.1.0"
+description = "Next Generation AI Agent Framework"
+authors = [{ name = "Novamind Team" }]
+requires-python = ">=3.10,<3.13"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = [
+    "artificial-intelligence",
+    "ai-agents",
+    "machine-learning",
+    "deep-learning",
+    "multi-agent-systems",
+    "natural-language-processing",
+    "large-language-models",
+]
+dependencies = [
+    "openai>=1.68.0,<2",
+    "pydantic>=2.0.0,<3.0.0",
+    "httpx>=0.28.0,<1.0.0",
+    "tiktoken>=0.7.0,<0.8",
+    "jsonschema>=4,<5",
+    "python-dotenv>=1.0.0,<2",
+    "colorama>=0.4.6,<0.5",
+    "loguru>=0.7.0,<0.8",
+]
+
+[project.optional-dependencies]
+core = [
+    "numpy>=1.26.0,<2",
+    "pandas>=2.0.0,<3",
+    "scikit-learn>=1.4.0,<2",
+    "torch>=2.2.0",
+    "transformers>=4.37.0,<5",
+]
+
+agents = [
+    "langchain>=0.1.0,<0.2",
+    "langchain-community>=0.0.10,<0.1",
+    "langchain-core>=0.1.10,<0.2",
+]
+
+rag = [
+    "sentence-transformers>=3.0.1,<4",
+    "qdrant-client>=1.9.0,<2",
+    "chromadb>=0.4.22,<0.5",
+    "faiss-cpu>=1.7.4,<2",
+]
+
+tools = [
+    "beautifulsoup4>=4.12.0,<5",
+    "requests>=2.31.0,<3",
+    "aiohttp>=3.9.0,<4",
+    "duckduckgo-search>=6.3.5,<7",
+    "wikipedia>=1.4.0,<2",
+]
+
+dev = [
+    "pytest>=8.0.0,<9",
+    "pytest-asyncio>=0.23.0,<0.24",
+    "pytest-cov>=4.1.0,<5",
+    "black>=24.1.0,<25",
+    "ruff>=0.2.0,<0.3",
+    "mypy>=1.8.0,<2",
+    "pre-commit>=3.6.0,<4",
+]
+
+docs = [
+    "sphinx>=7.2.0,<8",
+    "sphinx-rtd-theme>=2.0.0,<3",
+    "myst-parser>=2.0.0,<3",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "B", "I", "N", "UP", "PL", "RUF"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=novamind --cov-report=term-missing" 
