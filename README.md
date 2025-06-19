@@ -1,7 +1,7 @@
 # NovaMind: 下一代多智能体与大模型应用框架
 
 <div align="center">
-  <img src="img/novamind.png" alt="NovaMind Logo" width="400"/>
+  <img src="img/novamind.jpg" alt="NovaMind Logo" width="400"/>
 
 > **NovaMind** 是面向未来的企业级多智能体与大模型应用开发框架，专注于高效、可扩展、模块化的智能体系统与AI工具链，提供完整的权限管理、分布式架构、企业级安全和专业训练框架，助力学术研究与产业落地。
 
