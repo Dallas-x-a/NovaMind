@@ -1,6 +1,10 @@
 # NovaMind: 下一代多智能体与大模型应用框架
 
-> **NovaMind** 是企业级多智能体与大模型应用开发框架，专注于高效、可扩展、模块化的智能体系统与AI工具链，提供完整的权限管理、分布式架构、企业级安全和专业训练框架，助力学术研究与产业落地。
+<div align="center">
+  <img src="img/novamind.png" alt="NovaMind Logo" width="400"/>
+  
+  > **NovaMind** 是面向未来的企业级多智能体与大模型应用开发框架，专注于高效、可扩展、模块化的智能体系统与AI工具链，提供完整的权限管理、分布式架构、企业级安全和专业训练框架，助力学术研究与产业落地。
+</div>
 
 ---
 
@@ -9,7 +13,7 @@
 - **模块化与可扩展性**：核心功能高度解耦，支持灵活组合与自定义扩展
 - **多大模型原生支持**：内置OpenAI、Claude、Qwen、ERNIE、Llama、DeepSeek、MiniMax、GLM、Yi等主流大模型接口
 - **丰富的智能体与工具生态**：涵盖RAG、信息抽取、代码生成、联网搜索、知识图谱等多场景
-- **🚀 企业级训练框架**：专业训练系统，支持实时监控、智能调优、LoRA训练
+- **🚀 企业级训练框架**：LangChain风格的专业训练系统，支持实时监控、智能调优、LoRA训练
 - **企业级权限管理**：完整的RBAC权限系统，支持细粒度权限控制
 - **分布式Agent架构**：基于gRPC的分布式Agent系统，支持大规模部署
 - **工程级最佳实践**：官方示例丰富，文档详尽，易于集成与二次开发
@@ -18,7 +22,7 @@
 
 ## 🚀 企业级训练框架
 
-NovaMind提供了一套完整的**训练框架**，专门针对大语言模型进行实时监控、参数调整和LoRA训练，具有以下独特优势：
+NovaMind提供了一套完整的**LangChain风格训练框架**，专门针对大语言模型进行实时监控、参数调整和LoRA训练，具有以下独特优势：
 
 ### 🎯 核心优势
 
@@ -207,64 +211,6 @@ for exp_name in experiments.keys():
 # 对比分析
 for name, result in results.items():
     print(f"{name}: 最终损失={result['final_loss']:.4f}, 准确率={result['best_accuracy']:.4f}")
-```
-
-### 🔧 快速开始
-
-#### 1. 安装依赖
-```bash
-# 安装训练框架
-pip install torch transformers datasets wandb plotly fastapi uvicorn
-
-# 或使用安装脚本
-python install_training.py
-```
-
-#### 2. 创建训练配置
-```python
-from novamind.training import get_training_config, LLMTrainer
-
-# 使用预设配置
-config = get_training_config(
-    model_preset="dialo-gpt-small",
-    training_preset="quick",
-    dataset_path="./data/sample_data.json",
-    training_name="my_first_training"
-)
-
-# 创建训练器
-trainer = LLMTrainer(config)
-```
-
-#### 3. 启动训练
-```python
-from novamind.training import training_manager, training_monitor
-
-# 启动监控
-training_monitor.start_background()
-
-# 启动训练
-training_id = training_manager.start_training("my_training", trainer)
-
-# 查看训练状态
-status = training_manager.get_training_status(training_id)
-print(f"训练状态: {status['status']}")
-```
-
-#### 4. 模型推理
-```python
-# 文本生成
-generated_text = trainer.generate_text(
-    "人工智能的未来发展",
-    max_length=100,
-    temperature=0.7
-)
-print(generated_text)
-
-# 评估生成质量
-test_prompts = ["什么是机器学习？", "深度学习有什么优势？"]
-metrics = trainer.evaluate_generation_quality(test_prompts)
-print(metrics)
 ```
 
 ---
@@ -526,6 +472,19 @@ python -c "from novamind.training.monitor import training_monitor; training_moni
 cd frontend && npm start
 ```
 
+### Docker部署
+```dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY requirements*.txt ./
+RUN pip install -r requirements.txt -r requirements_training.txt
+
+COPY . .
+EXPOSE 8000 8080
+
+CMD ["python", "-m", "novamind.api"]
+```
 
 ### 训练框架部署
 ```bash
@@ -559,6 +518,7 @@ python -m novamind.training.advantages_demo
 ### 社区资源
 - [GitHub Issues](https://github.com/your-org/novamind/issues)
 - [Discord社区](https://discord.gg/novamind)
+- [技术博客](https://blog.novamind.ai)
 
 ---
 
@@ -648,7 +608,15 @@ isort .
 
 **NovaMind** - 让AI开发更简单、更高效、更强大！ 🚀
 
+---
 
+## 📞 联系我们
+
+- **官方网站**: https://novamind.ai
+- **GitHub**: https://github.com/your-org/novamind
+- **邮箱**: contact@novamind.ai
+- **Discord**: https://discord.gg/novamind
+- **Twitter**: https://twitter.com/novamind_ai
 
 ---
 
