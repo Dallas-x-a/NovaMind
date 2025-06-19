@@ -1,7 +1,5 @@
 # Novamind: 下一代多智能体与大模型应用框架
 
-
-
 > **Novamind** 是面向未来的多智能体与大模型应用开发框架，专注于高效、可扩展、模块化的智能体系统与AI工具链，助力学术研究与产业落地。
 
 ---
@@ -94,8 +92,7 @@ novamind/
 
 ## 📚 文档与Cookbook
 
-- [官方文档站点](https://novamind.readthedocs.io/)
-- [Cookbook与用例](docs/cookbook.md)（持续丰富中）
+- 持续丰富中）
 
 ---
 
@@ -111,7 +108,6 @@ novamind/
 
 - [GitHub Issues](https://github.com/yourusername/novamind/issues)
 - [Discussions](https://github.com/yourusername/novamind/discussions)
-- [社区交流群/Discord/微信群](#)
 
 ---
 
@@ -134,4 +130,4 @@ novamind/
 
 ---
 
-> Novamind 致力于推动智能体与大模型技术的开放创新，欢迎学术与产业合作！ 
+> Novamind 致力于推动智能体与大模型技术的开放创新，欢迎学术与产业合作！
